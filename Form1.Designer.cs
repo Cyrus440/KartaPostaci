@@ -102,7 +102,6 @@
             this.CharacterRace.Size = new System.Drawing.Size(72, 15);
             this.CharacterRace.TabIndex = 4;
             this.CharacterRace.Text = "Rasa Postaci";
-            this.CharacterRace.Click += new System.EventHandler(this.CharacterRace_Click);
             // 
             // CurrentProfessionTextBox
             // 
@@ -178,6 +177,7 @@
             this.UpdateButton.TabIndex = 14;
             this.UpdateButton.Text = "Zaktualizuj Kartę";
             this.UpdateButton.UseVisualStyleBackColor = true;
+            this.UpdateButton.Click += new System.EventHandler(this.UpdateButton_Click);
             // 
             // LastButton
             // 
@@ -187,6 +187,7 @@
             this.LastButton.TabIndex = 15;
             this.LastButton.Text = "Poprzednia Karta";
             this.LastButton.UseVisualStyleBackColor = true;
+            this.LastButton.Click += new System.EventHandler(this.LastButton_Click);
             // 
             // NextButton
             // 
@@ -196,6 +197,7 @@
             this.NextButton.TabIndex = 16;
             this.NextButton.Text = "Następna Karta";
             this.NextButton.UseVisualStyleBackColor = true;
+            this.NextButton.Click += new System.EventHandler(this.NextButton_Click);
             // 
             // AddSheetButton
             // 
@@ -205,6 +207,7 @@
             this.AddSheetButton.TabIndex = 17;
             this.AddSheetButton.Text = "Dodaj Kartę";
             this.AddSheetButton.UseVisualStyleBackColor = true;
+            this.AddSheetButton.Click += new System.EventHandler(this.AddSheetButton_Click);
             // 
             // DeleteSheetButton
             // 
@@ -214,6 +217,7 @@
             this.DeleteSheetButton.TabIndex = 18;
             this.DeleteSheetButton.Text = "Usuń Obecną Kartę";
             this.DeleteSheetButton.UseVisualStyleBackColor = true;
+            this.DeleteSheetButton.Click += new System.EventHandler(this.DeleteSheetButton_Click);
             // 
             // Form1
             // 
