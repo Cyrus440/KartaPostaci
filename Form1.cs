@@ -2,13 +2,11 @@ namespace KartaPostaci
 {
     public partial class Form1 : Form
     {
-        KartaPostaci someCharacter;
         List<KartaPostaci> playerList;
         int currentSheet;
         public Form1()
         {
             InitializeComponent();
-            someCharacter = new KartaPostaci();
             playerList = new List<KartaPostaci>();
             playerList.Add(new KartaPostaci());
             currentSheet = 0;
@@ -22,6 +20,12 @@ namespace KartaPostaci
 
         private void UpdateButton_Click(object sender, EventArgs e)
         {
+            string updateName = UpdateNameTextBox.Text;
+            string updateRace = UpdateRaceTextBox.Text;
+            string updateProffesion = UpdateProfessionTextBox.Text;
+            playerList[currentSheet].name = updateName;
+            playerList[currentSheet].race = updateRace;
+            playerList[currentSheet].profession = updateProffesion;
             displayCurrentCharacterSheet();
         }
 
@@ -52,6 +56,13 @@ namespace KartaPostaci
             CurrentRaceTextBox.Text = playerList[currentSheet].race;
             CurrentProfessionTextBox.Text = playerList[currentSheet].profession;
             displayInformationLabel.Text = "Karta " + (currentSheet+1).ToString() + " z " + playerList.Count;
+            clearForm();
+        }
+        public void clearForm()
+        {
+            UpdateNameTextBox.Text = "";
+            UpdateRaceTextBox.Text = "";
+            UpdateProfessionTextBox.Text = "";
         }
     }
 }
