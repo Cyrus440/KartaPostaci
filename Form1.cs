@@ -95,6 +95,7 @@ namespace KartaPostaci
             playerList[currentSheet].perception = updatePerception;
             playerList[currentSheet].stealth = updateStealth;
             displayCurrentCharacterSheet();
+            CharacterList.Items.Add(playerList[currentSheet].name);
         }
 
         private void LastButton_Click(object sender, EventArgs e)
@@ -117,6 +118,7 @@ namespace KartaPostaci
         {
             currentSheet = playerList.Count;
             playerList.Add(new KartaPostaci());
+            playerList[currentSheet].id = playerList.Count;
             displayCurrentCharacterSheet();
         }
 
@@ -227,8 +229,8 @@ namespace KartaPostaci
             Random rnd = new Random();
             int nowasila = rnd.Next(22, 41);
             int nowazwinnosc = rnd.Next(22, 41);
-            int nowapercepcja = rnd.Next(1, 6);
-            int noweskradanie = rnd.Next(1, 6);
+            int nowapercepcja = rnd.Next(2, 6);
+            int noweskradanie = rnd.Next(2, 6);
             playerList[currentSheet].strength = nowasila;
             playerList[currentSheet].agility = nowazwinnosc;
             playerList[currentSheet].perception = nowapercepcja;
@@ -247,8 +249,126 @@ namespace KartaPostaci
 
         private void StrengthSortButton_Click(object sender, EventArgs e)
         {
-            playerList.Sort((x, y) => x.strength.CompareTo(y.strength));
+            playerList.Sort((x, y) => y.strength.CompareTo(x.strength));
         }
-        
+
+        private void AgilitySortButton_Click(object sender, EventArgs e)
+        {
+            playerList.Sort((x, y) => y.agility.CompareTo(x.agility));
+        }
+
+        private void PerceptionSortButton_Click(object sender, EventArgs e)
+        {
+            playerList.Sort((x, y) => y.perception.CompareTo(x.perception));
+        }
+
+        private void StealthSortButton_Click(object sender, EventArgs e)
+        {
+            playerList.Sort((x, y) => y.stealth.CompareTo(x.stealth));
+        }
+
+        private void OpposedStrengthButton_Click(object sender, EventArgs e)
+        {
+            Random rnd = new Random();
+            int wynik1 = rnd.Next(1, 101);
+            int wynik2 = rnd.Next(1, 101);
+            var othercharacter = playerList.FindIndex(i =>i.name == CharacterList.SelectedItem.ToString());
+            int stopniesukcesu1;
+            int stopniesukcesu2;
+            stopniesukcesu1 = (playerList[currentSheet].strength - wynik1)/10;
+            stopniesukcesu2 = (playerList[othercharacter].strength - wynik2) / 10;
+            if (stopniesukcesu1 > stopniesukcesu2)
+            {
+                int difference = stopniesukcesu1 - stopniesukcesu2;
+                ResultTextBox.Text = "Wygra³/a " + playerList[currentSheet].name + " o " + difference + " stopieñ/stopnie";
+            }
+            else if(stopniesukcesu2 > stopniesukcesu1)
+            {
+                int difference = stopniesukcesu2 - stopniesukcesu1;
+                ResultTextBox.Text = "Wygra³/a " + playerList[othercharacter].name + " o " + difference + " stopieñ/stopnie";
+            }
+            else if(stopniesukcesu1 == stopniesukcesu2)
+            {
+                ResultTextBox.Text = playerList[currentSheet].name + " zremisowa³/a z " + playerList[othercharacter].name;
+            }
+        }
+
+        private void OpposedAgilityButton_Click(object sender, EventArgs e)
+        {
+            Random rnd = new Random();
+            int wynik1 = rnd.Next(1, 101);
+            int wynik2 = rnd.Next(1, 101);
+            var othercharacter = playerList.FindIndex(i => i.name == CharacterList.SelectedItem.ToString());
+            int stopniesukcesu1;
+            int stopniesukcesu2;
+            stopniesukcesu1 = (playerList[currentSheet].agility - wynik1) / 10;
+            stopniesukcesu2 = (playerList[othercharacter].agility - wynik2) / 10;
+            if (stopniesukcesu1 > stopniesukcesu2)
+            {
+                int difference = stopniesukcesu1 - stopniesukcesu2;
+                ResultTextBox.Text = "Wygra³/a " + playerList[currentSheet].name + " o " + difference + " stopieñ/stopnie";
+            }
+            else if (stopniesukcesu2 > stopniesukcesu1)
+            {
+                int difference = stopniesukcesu2 - stopniesukcesu1;
+                ResultTextBox.Text = "Wygra³/a " + playerList[othercharacter].name + " o " + difference + " stopieñ/stopnie";
+            }
+            else if (stopniesukcesu1 == stopniesukcesu2)
+            {
+                ResultTextBox.Text = playerList[currentSheet].name + " zremisowa³/a z " + playerList[othercharacter].name;
+            }
+        }
+
+        private void OpposedPerceptionButton_Click(object sender, EventArgs e)
+        {
+            Random rnd = new Random();
+            int wynik1 = rnd.Next(1, 11);
+            int wynik2 = rnd.Next(1, 11);
+            var othercharacter = playerList.FindIndex(i => i.name == CharacterList.SelectedItem.ToString());
+            int stopniesukcesu1;
+            int stopniesukcesu2;
+            stopniesukcesu1 = (playerList[currentSheet].perception - wynik1) / 10;
+            stopniesukcesu2 = (playerList[othercharacter].perception - wynik2) / 10;
+            if (stopniesukcesu1 > stopniesukcesu2)
+            {
+                int difference = stopniesukcesu1 - stopniesukcesu2;
+                ResultTextBox.Text = "Wygra³/a " + playerList[currentSheet].name + " o " + difference + " stopieñ/stopnie";
+            }
+            else if (stopniesukcesu2 > stopniesukcesu1)
+            {
+                int difference = stopniesukcesu2 - stopniesukcesu1;
+                ResultTextBox.Text = "Wygra³/a " + playerList[othercharacter].name + " o " + difference + " stopieñ/stopnie";
+            }
+            else if (stopniesukcesu1 == stopniesukcesu2)
+            {
+                ResultTextBox.Text = playerList[currentSheet].name + " zremisowa³/a z " + playerList[othercharacter].name;
+            }
+        }
+
+        private void OpposedStealthButton_Click(object sender, EventArgs e)
+        {
+            Random rnd = new Random();
+            int wynik1 = rnd.Next(1, 11);
+            int wynik2 = rnd.Next(1, 11);
+            var othercharacter = playerList.FindIndex(i => i.name == CharacterList.SelectedItem.ToString());
+            int stopniesukcesu1;
+            int stopniesukcesu2;
+            stopniesukcesu1 = (playerList[currentSheet].stealth - wynik1) / 10;
+            stopniesukcesu2 = (playerList[othercharacter].stealth - wynik2) / 10;
+            if (stopniesukcesu1 > stopniesukcesu2)
+            {
+                int difference = stopniesukcesu1 - stopniesukcesu2;
+                ResultTextBox.Text = "Wygra³/a " + playerList[currentSheet].name + " o " + difference + " stopieñ/stopnie";
+            }
+            else if (stopniesukcesu2 > stopniesukcesu1)
+            {
+                int difference = stopniesukcesu2 - stopniesukcesu1;
+                ResultTextBox.Text = "Wygra³/a " + playerList[othercharacter].name + " o " + difference + " stopieñ/stopnie";
+            }
+            else if (stopniesukcesu1 == stopniesukcesu2)
+            {
+                ResultTextBox.Text = playerList[currentSheet].name + " zremisowa³/a z " + playerList[othercharacter].name;
+            }
+        }
     }
 }

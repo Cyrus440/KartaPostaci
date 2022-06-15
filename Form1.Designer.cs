@@ -75,6 +75,12 @@
             this.AgilitySortButton = new System.Windows.Forms.Button();
             this.PerceptionSortButton = new System.Windows.Forms.Button();
             this.StealthSortButton = new System.Windows.Forms.Button();
+            this.CharacterList = new System.Windows.Forms.ComboBox();
+            this.OpposedLabel = new System.Windows.Forms.Label();
+            this.OpposedStrengthButton = new System.Windows.Forms.Button();
+            this.OpposedAgilityButton = new System.Windows.Forms.Button();
+            this.OpposedPerceptionButton = new System.Windows.Forms.Button();
+            this.OpposedStealthButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // displayInformationLabel
@@ -436,10 +442,10 @@
             // 
             // ResultTextBox
             // 
-            this.ResultTextBox.Location = new System.Drawing.Point(397, 269);
+            this.ResultTextBox.Location = new System.Drawing.Point(397, 247);
             this.ResultTextBox.Name = "ResultTextBox";
             this.ResultTextBox.ReadOnly = true;
-            this.ResultTextBox.Size = new System.Drawing.Size(179, 23);
+            this.ResultTextBox.Size = new System.Drawing.Size(391, 23);
             this.ResultTextBox.TabIndex = 40;
             this.ResultTextBox.TabStop = false;
             // 
@@ -480,6 +486,7 @@
             this.AgilitySortButton.TabIndex = 44;
             this.AgilitySortButton.Text = "Po Zwinności";
             this.AgilitySortButton.UseVisualStyleBackColor = true;
+            this.AgilitySortButton.Click += new System.EventHandler(this.AgilitySortButton_Click);
             // 
             // PerceptionSortButton
             // 
@@ -489,6 +496,7 @@
             this.PerceptionSortButton.TabIndex = 45;
             this.PerceptionSortButton.Text = "Po Percepcji";
             this.PerceptionSortButton.UseVisualStyleBackColor = true;
+            this.PerceptionSortButton.Click += new System.EventHandler(this.PerceptionSortButton_Click);
             // 
             // StealthSortButton
             // 
@@ -498,12 +506,77 @@
             this.StealthSortButton.TabIndex = 46;
             this.StealthSortButton.Text = "Po Skradaniu";
             this.StealthSortButton.UseVisualStyleBackColor = true;
+            this.StealthSortButton.Click += new System.EventHandler(this.StealthSortButton_Click);
+            // 
+            // CharacterList
+            // 
+            this.CharacterList.FormattingEnabled = true;
+            this.CharacterList.Location = new System.Drawing.Point(582, 298);
+            this.CharacterList.MaxDropDownItems = 12;
+            this.CharacterList.Name = "CharacterList";
+            this.CharacterList.Size = new System.Drawing.Size(206, 23);
+            this.CharacterList.TabIndex = 47;
+            // 
+            // OpposedLabel
+            // 
+            this.OpposedLabel.AutoSize = true;
+            this.OpposedLabel.Location = new System.Drawing.Point(586, 277);
+            this.OpposedLabel.Name = "OpposedLabel";
+            this.OpposedLabel.Size = new System.Drawing.Size(107, 15);
+            this.OpposedLabel.TabIndex = 48;
+            this.OpposedLabel.Text = "Przeciwstawny Test";
+            // 
+            // OpposedStrengthButton
+            // 
+            this.OpposedStrengthButton.Location = new System.Drawing.Point(586, 327);
+            this.OpposedStrengthButton.Name = "OpposedStrengthButton";
+            this.OpposedStrengthButton.Size = new System.Drawing.Size(75, 23);
+            this.OpposedStrengthButton.TabIndex = 49;
+            this.OpposedStrengthButton.Text = "Siły";
+            this.OpposedStrengthButton.UseVisualStyleBackColor = true;
+            this.OpposedStrengthButton.Click += new System.EventHandler(this.OpposedStrengthButton_Click);
+            // 
+            // OpposedAgilityButton
+            // 
+            this.OpposedAgilityButton.Location = new System.Drawing.Point(586, 356);
+            this.OpposedAgilityButton.Name = "OpposedAgilityButton";
+            this.OpposedAgilityButton.Size = new System.Drawing.Size(75, 23);
+            this.OpposedAgilityButton.TabIndex = 50;
+            this.OpposedAgilityButton.Text = "Zwinności";
+            this.OpposedAgilityButton.UseVisualStyleBackColor = true;
+            this.OpposedAgilityButton.Click += new System.EventHandler(this.OpposedAgilityButton_Click);
+            // 
+            // OpposedPerceptionButton
+            // 
+            this.OpposedPerceptionButton.Location = new System.Drawing.Point(667, 327);
+            this.OpposedPerceptionButton.Name = "OpposedPerceptionButton";
+            this.OpposedPerceptionButton.Size = new System.Drawing.Size(75, 23);
+            this.OpposedPerceptionButton.TabIndex = 51;
+            this.OpposedPerceptionButton.Text = "Percepcji";
+            this.OpposedPerceptionButton.UseVisualStyleBackColor = true;
+            this.OpposedPerceptionButton.Click += new System.EventHandler(this.OpposedPerceptionButton_Click);
+            // 
+            // OpposedStealthButton
+            // 
+            this.OpposedStealthButton.Location = new System.Drawing.Point(667, 357);
+            this.OpposedStealthButton.Name = "OpposedStealthButton";
+            this.OpposedStealthButton.Size = new System.Drawing.Size(75, 23);
+            this.OpposedStealthButton.TabIndex = 52;
+            this.OpposedStealthButton.Text = "Skradania";
+            this.OpposedStealthButton.UseVisualStyleBackColor = true;
+            this.OpposedStealthButton.Click += new System.EventHandler(this.OpposedStealthButton_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.OpposedStealthButton);
+            this.Controls.Add(this.OpposedPerceptionButton);
+            this.Controls.Add(this.OpposedAgilityButton);
+            this.Controls.Add(this.OpposedStrengthButton);
+            this.Controls.Add(this.OpposedLabel);
+            this.Controls.Add(this.CharacterList);
             this.Controls.Add(this.StealthSortButton);
             this.Controls.Add(this.PerceptionSortButton);
             this.Controls.Add(this.AgilitySortButton);
@@ -607,5 +680,11 @@
         private Button AgilitySortButton;
         private Button PerceptionSortButton;
         private Button StealthSortButton;
+        private ComboBox CharacterList;
+        private Label OpposedLabel;
+        private Button OpposedStrengthButton;
+        private Button OpposedAgilityButton;
+        private Button OpposedPerceptionButton;
+        private Button OpposedStealthButton;
     }
 }

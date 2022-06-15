@@ -11,6 +11,7 @@ namespace KartaPostaci
 {
     public class KartaPostaci
     {
+        public int id;
         public string name;
         public string race;
         public string profession;
@@ -21,13 +22,15 @@ namespace KartaPostaci
 
         public KartaPostaci()
         {
+            id = 1;
             name = "Nazwa";
             race = "Rasa";
             profession = "Profesja";
             strength = 22;
             agility = 22;
-            perception = 5;
-            stealth = 5;
+            perception = 2;
+            stealth = 2;
         }
     }
 }
+
