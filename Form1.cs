@@ -327,8 +327,8 @@ namespace KartaPostaci
             var othercharacter = playerList.FindIndex(i => i.name == CharacterList.SelectedItem.ToString());
             int stopniesukcesu1;
             int stopniesukcesu2;
-            stopniesukcesu1 = (playerList[currentSheet].perception - wynik1) / 10;
-            stopniesukcesu2 = (playerList[othercharacter].perception - wynik2) / 10;
+            stopniesukcesu1 = (playerList[currentSheet].perception - wynik1);
+            stopniesukcesu2 = (playerList[othercharacter].perception - wynik2);
             if (stopniesukcesu1 > stopniesukcesu2)
             {
                 int difference = stopniesukcesu1 - stopniesukcesu2;
@@ -353,8 +353,8 @@ namespace KartaPostaci
             var othercharacter = playerList.FindIndex(i => i.name == CharacterList.SelectedItem.ToString());
             int stopniesukcesu1;
             int stopniesukcesu2;
-            stopniesukcesu1 = (playerList[currentSheet].stealth - wynik1) / 10;
-            stopniesukcesu2 = (playerList[othercharacter].stealth - wynik2) / 10;
+            stopniesukcesu1 = (playerList[currentSheet].stealth - wynik1);
+            stopniesukcesu2 = (playerList[othercharacter].stealth - wynik2);
             if (stopniesukcesu1 > stopniesukcesu2)
             {
                 int difference = stopniesukcesu1 - stopniesukcesu2;
