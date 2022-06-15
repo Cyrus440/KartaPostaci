@@ -250,21 +250,25 @@ namespace KartaPostaci
         private void StrengthSortButton_Click(object sender, EventArgs e)
         {
             playerList.Sort((x, y) => y.strength.CompareTo(x.strength));
+            displayCurrentCharacterSheet();
         }
 
         private void AgilitySortButton_Click(object sender, EventArgs e)
         {
             playerList.Sort((x, y) => y.agility.CompareTo(x.agility));
+            displayCurrentCharacterSheet();
         }
 
         private void PerceptionSortButton_Click(object sender, EventArgs e)
         {
             playerList.Sort((x, y) => y.perception.CompareTo(x.perception));
+            displayCurrentCharacterSheet();
         }
 
         private void StealthSortButton_Click(object sender, EventArgs e)
         {
             playerList.Sort((x, y) => y.stealth.CompareTo(x.stealth));
+            displayCurrentCharacterSheet();
         }
 
         private void OpposedStrengthButton_Click(object sender, EventArgs e)
